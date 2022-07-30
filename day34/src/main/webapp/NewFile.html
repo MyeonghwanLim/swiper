@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>토글 애니메이션</title>
+<style type="text/css">
+* {
+   margin: 1px;
+}
+
+body {
+   overflow: hidden;
+}
+
+#box1 {
+   height: 100px;
+   background-color: coral;
+   transform: translateX(-100%);
+   transition: all 1s;
+}
+
+#box2 {
+   height: 100px;
+   background-color: lightblue;
+   transform: translateX(100%);
+   transition: all 1s;
+}
+
+#box1.on, #box2.on {
+   transform: translateX(0);
+}
+</style>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+   integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+   crossorigin="anonymous"></script>
+</head>
+<body>
+   <script type="text/javascript">
+      $(document).ready(function() {
+         $("button:eq(0)").on("click", function() {
+            $("#box1").toggleClass("on");
+         });
+         $("button:eq(1)").on("click", function() {
+            $("#box2").toggleClass("on");
+         });
+         $("button:eq(2)").on("click", function() {
+            $("button:eq(0)").trigger("click");
+            $("button:eq(1)").trigger("click");
+         });
+      });
+   </script>
+   <div id="box1"></div>
+   <div id="box2"></div>
+   <button>액션1</button>
+   <button>액션2</button>
+   <button>액션3</button>
+
+</body>
+</html>

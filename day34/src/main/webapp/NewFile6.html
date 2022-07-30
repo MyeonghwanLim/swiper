@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>masonry 플러그인</title>
+<style type="text/css">
+	* {
+		margin: 0;
+		padding: 0;
+	}
+	.pBox {
+		margin: 5px;
+		background: lightpink;
+	}
+	.bBox {
+		margin: 5px;
+		background: lightblue;
+	}
+</style>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="http://masonry.desandro.com/masonry.pkgd.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		for(var i=0;i<200;i++){
+			if(i%2==0){
+				$('<div></div>').addClass('pBox').css({
+					width:100,
+					height:Math.floor(Math.random()*100)+50
+				}).appendTo('body');
+			}
+			else{
+				$('<div></div>').addClass('bBox').css({
+					width:100,
+					height:Math.floor(Math.random()*100)+50
+				}).appendTo('body');
+			}
+		}
+		$('body').masonry({
+			transitionDuration: '1.5s'
+		});
+	});	
+</script>
+</head>
+<body>
+
+
+
+</body>
+</html>
